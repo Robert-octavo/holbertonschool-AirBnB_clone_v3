@@ -65,6 +65,6 @@ def update_by_id(state_id):
         for k, v in update.items():
             setattr(state, k, v)
         storage.save()
-        return state.to_dict()
+        return jsonify(state.to_dict()), 200
     except Exception:
         return jsonify('Not a JSON'), 400
