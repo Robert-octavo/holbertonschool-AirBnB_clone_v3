@@ -63,7 +63,8 @@ def update_by_id(state_id):
         if not state:
             abort(404)
         for k, v in update.items():
-            setattr(state, k, v)
+            if k not in ["id", "updated_at", "created_at"]:
+                setattr(state, k, v)
         storage.save()
         return jsonify(state.to_dict()), 200
     except Exception:
