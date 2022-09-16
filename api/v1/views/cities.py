@@ -55,7 +55,7 @@ def city_post_by_id(state_id):
         return jsonify('Not a JSON'), 400
 
     if "name" not in city:
-            return jsonify('Missing name'), 400
+        return jsonify('Missing name'), 400
 
     new_city = City(**city)
     setattr(new_city, 'state_id', state_id)
@@ -66,7 +66,7 @@ def city_post_by_id(state_id):
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['PUT'])
 def update_city_by_id(city_id):
-    """Update a State"""
+    """Update a City"""
 
     update = request.get_json()
     city = storage.get('City', city_id)
