@@ -2,7 +2,7 @@
 """view for State objects that handles all default RESTFul API"""
 
 from os import stat
-from flask import jsonify, abort, request
+from flask import jsonify, abort, request, make_response
 from api.v1.views import app_views
 from models import storage
 from models.state import State
@@ -66,6 +66,7 @@ def update_by_id(state_id):
             if k not in ["id", "updated_at", "created_at"]:
                 setattr(state, k, v)
         storage.save()
-        return jsonify(state.to_dict()), 200
+        return make_response(jsonify(state.to_dict()), 200)
     except Exception:
         return jsonify('Not a JSON'), 400
+        #abort(400, description="Not a JSON")
