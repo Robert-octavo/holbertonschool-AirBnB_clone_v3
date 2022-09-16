@@ -68,5 +68,5 @@ def update_by_id(state_id):
         storage.save()
         return make_response(jsonify(state.to_dict()), 200)
     except Exception:
-        return jsonify('Not a JSON'), 400
-        #abort(400, description="Not a JSON")
+        #return jsonify('Not a JSON'), 400
+        abort(400, description="Not a JSON")
