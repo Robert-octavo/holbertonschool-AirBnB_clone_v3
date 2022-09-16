@@ -57,8 +57,8 @@ def post_by_id():
 @app_views.route('/states/<state_id>', strict_slashes=False, methods=['PUT'])
 def update_by_id(state_id):
     """Update a State"""
-    update = request.get_json()
     try:
+        update = request.get_json()
         state = storage.get('State', state_id)
         if not state:
             abort(404)
