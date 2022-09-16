@@ -46,11 +46,11 @@ def delete_city_by_id(city_id):
                  strict_slashes=False, methods=['POST'])
 def city_post_by_id(state_id):
     """Create a new city"""
-    state = storage.get('State', state_id)
-    if not state:
-        abort(404)
 
     try:
+        state = storage.get('State', state_id)
+        if not state:
+            abort(404)
         city = request.get_json()
         if "name" not in city:
             return jsonify('Missing name'), 400
