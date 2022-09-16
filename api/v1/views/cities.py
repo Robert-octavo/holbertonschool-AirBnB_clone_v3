@@ -41,7 +41,9 @@ def delete_city_by_id(city_id):
     else:
         abort(404)
 
-@app_views.route('/states/<state_id>/cities', strict_slashes=False, methods=['POST'])
+
+@app_views.route('/states/<state_id>/cities',
+                 strict_slashes=False, methods=['POST'])
 def city_post_by_id(state_id):
     """Create a new city"""
     state = storage.get('State', state_id)
@@ -60,6 +62,7 @@ def city_post_by_id(state_id):
         return new_city.to_dict(), 201
     except Exception:
         return jsonify('Not a JSON'), 400
+
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['PUT'])
 def update_city_by_id(city_id):
