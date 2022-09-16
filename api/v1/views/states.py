@@ -60,7 +60,7 @@ def update_by_id(state_id):
     try:
         update = request.get_json()
         state = storage.get('State', state_id)
-        if state is None:
+        if not state:
             abort(404)
         for k, v in update.items():
             if k not in ["id", "updated_at", "created_at"]:
