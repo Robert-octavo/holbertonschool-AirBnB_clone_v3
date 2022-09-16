@@ -28,7 +28,7 @@ def city_by_id(city_id):
     return jsonify(city.to_dict()) if city else abort(404)
 
 
-@app_views.route('/states/<city_id>',
+@app_views.route('/cities/<city_id>',
                  strict_slashes=False,
                  methods=['DELETE'])
 def delete_city_by_id(city_id):
