@@ -66,7 +66,6 @@ def update_by_id(state_id):
             if k not in ["id", "updated_at", "created_at"]:
                 setattr(state, k, v)
         storage.save()
-        return make_response(jsonify(state.to_dict()), 200)
+        return jsonify(state.to_dict()), 200
     except Exception:
-        #return jsonify('Not a JSON'), 400
-        abort(400, description="Not a JSON")
+        return jsonify('Not a JSON'), 400
