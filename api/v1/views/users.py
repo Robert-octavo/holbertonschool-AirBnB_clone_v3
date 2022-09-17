@@ -45,6 +45,12 @@ def user_post_by_id():
         user = request.get_json()
         if "name" not in user:
             return jsonify('Missing name'), 400
+        
+        if "email" not in user:
+            return jsonify('Missing email'), 400
+        
+        if "password" not in user:
+            return jsonify('Missing password'), 400
 
         new_user = User(**user)
         storage.new(new_user)
