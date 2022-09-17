@@ -55,7 +55,7 @@ def user_post_by_id():
 
 
 @app_views.route('/users/<user_id>', strict_slashes=False, methods=['PUT'])
-def update_by_id(user_id):
+def update_user_by_id(user_id):
     """Update a User"""
 
     update = request.get_json()
