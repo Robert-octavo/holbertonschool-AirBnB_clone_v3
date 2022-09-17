@@ -76,7 +76,7 @@ def update_review_by_id(review_id):
     """Update a review"""
 
     update = request.get_json()
-    review = storage.get('Review',review_id)
+    review = storage.get('Review', review_id)
     if not review:
         abort(404)
     if not update:
