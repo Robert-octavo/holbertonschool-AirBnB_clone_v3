@@ -53,7 +53,7 @@ def place_post_by_id(city_id):
         abort(404)
     if not place:
         return jsonify('Not a JSON'), 400
-    
+
     if "user_id" not in place:
         return jsonify('Missing user_id'), 400
 
